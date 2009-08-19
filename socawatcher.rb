@@ -9,7 +9,7 @@ require 'net/https'
 OpenSSL::SSL::VERIFY_PEER = OpenSSL::SSL::VERIFY_NONE
 
 doc = Hpricot(open("https://www.socaspot.org/"))
-alertContent = doc.at("//div[@class='alert_content']/div/span/strong/text()").to_s.strip
+alertContent = doc.at("//div[@class='alert_content']/span/strong/text()").to_s.strip
 
 httpauth = Twitter::HTTPAuth.new("SOCAWatcher", "")
 client = Twitter::Base.new(httpauth)
