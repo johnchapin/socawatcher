@@ -17,6 +17,6 @@ client = Twitter::Base.new(httpauth)
 currentStatus = client.user_timeline[0].text.sub("...","").strip
 
 if (currentStatus != alertContent[0..currentStatus.length])
-   client.update(alertContent)
+   client.update(alertContent[0..140])
 end
 
